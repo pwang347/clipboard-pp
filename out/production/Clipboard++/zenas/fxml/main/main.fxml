@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#mainKeyPressed" onKeyReleased="#mainKeyReleased" prefHeight="525.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zenas.fxml.main.MainFXController">
+   <bottom>
+      <Pagination fx:id="pagination" maxHeight="-Infinity" maxPageIndicatorCount="20" maxWidth="-Infinity" pageCount="1" prefHeight="50.0" prefWidth="432.0" visible="false" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+       <fx:include fx:id="menu" source="menu.fxml" />
+   </top>
+   <center>
+      <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane prefHeight="437.0" prefWidth="415.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox fx:id="dataPreviewBox" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Data preview">
+                           <padding>
+                              <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <AnchorPane fx:id="contentPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0">
+                           <children>
+                              <AnchorPane fx:id="textPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TextArea fx:id="textArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="imagePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ScrollPane fx:id="imageScroll" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="320.0" prefWidth="425.0">
+                                             <content>
+                                                <ImageView fx:id="imageView" fitHeight="319.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                                   <cursor>
+                                                      <Cursor fx:constant="CLOSED_HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                             </content>
+                                          </ScrollPane>
+                                          <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="425.0" style="-fx-border-color: #CCCCCC;">
+                                             <children>
+                                                <Label prefHeight="51.0" prefWidth="130.0" text="Zoom">
+                                                   <padding>
+                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Slider fx:id="zoomSlider" max="1000.0" min="1.0" prefHeight="48.0" prefWidth="275.0" value="100.0">
+                                                   <padding>
+                                                      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                   </padding>
+                                                </Slider>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextField fx:id="zoomField" maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#toolKeyPressed" prefHeight="30.0" prefWidth="60.0" text="100">
+                                                         <HBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Label text="\%">
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                         <padding>
+                                                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="webPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" style="-fx-background-color: #AAAAAA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TextField fx:id="urlText" editable="false" prefHeight="30.0" prefWidth="375.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </TextField>
+                                    <WebView fx:id="webView" prefHeight="336.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="filePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="371.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="387.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <ScrollPane fx:id="fileScroll" prefHeight="382.0" prefWidth="425.0">
+                                             <content>
+                                                <TilePane fx:id="fileContainer" prefColumns="3" prefHeight="364.0" prefWidth="405.0">
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </TilePane>
+                                             </content>
+                                          </ScrollPane>
+                                          <Separator prefWidth="200.0" />
+                                          <AnchorPane prefHeight="47.0" prefWidth="425.0">
+                                             <children>
+                                                <Label fx:id="itemCountLabel" text="0 Items" wrapText="true" AnchorPane.rightAnchor="0.0">
+                                                   <padding>
+                                                      <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+                                                   </padding>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <effect>
+                              <DropShadow color="#00000080" height="5.0" radius="0.75" width="0.0" />
+                           </effect>
+                        </AnchorPane>
+                        <ToolBar maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="425.0">
+                          <items>
+                              <ToggleButton fx:id="editToggleBtn" mnemonicParsing="false" onAction="#editToggle" text="Edit">
+                                 <tooltip>
+                                    <Tooltip text="Allows for editing of text" />
+                                 </tooltip>
+                              </ToggleButton>
+                              <Button mnemonicParsing="false" onAction="#saveFile" text="Export" />
+                              <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delPageDialog" text="Delete" />
+                          </items>
+                           <effect>
+                              <DropShadow color="#00000080" height="0.0" radius="0.75" width="5.0" />
+                           </effect>
+                        </ToolBar>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <AnchorPane fx:id="toolPaneContainer" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.valignment="TOP">
+                     <children>
+                        <TitledPane fx:id="toolPane" animated="false" expanded="false" layoutX="-50.0" prefHeight="31.0" prefWidth="136.0" text="Toolbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                          <content>
+                            <AnchorPane fx:id="toolContentPane" minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="93.0">
+                                 <children>
+                                    <VBox fx:id="imageTools" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Rotate Image" />
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Separator>
+                                          <HBox prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#rotateCW" prefHeight="30.0" prefWidth="250.0" text="CW" />
+                                                <Button mnemonicParsing="false" onAction="#rotateCCW" prefHeight="30.0" prefWidth="250.0" text="CCW" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="34.0" prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#flipHorizontal" prefHeight="30.0" prefWidth="250.0" text="Flip X" />
+                                                <Button mnemonicParsing="false" onAction="#flipVertical" prefHeight="30.0" prefWidth="250.0" text="Flip Y" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="120.0" text="Angle:" />
+                                                <TextField fx:id="rotationField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="63.0" text="0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Pane fx:id="rotateContainer" prefHeight="50.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Pane>
+                                          <Label layoutX="10.0" layoutY="10.0" text="Resize Image" />
+                                          <Separator layoutX="10.0" layoutY="31.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <HBox layoutX="10.0" layoutY="106.0" prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="120.0" text="Width: " />
+                                                <TextField fx:id="widthField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="90.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="120.0" text="Height: " />
+                                                <TextField fx:id="heightField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="90.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <Label text="Image Effects" />
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Separator>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#toBlackWhite" prefHeight="30.0" prefWidth="250.0" text="BW" />
+                                                <Button mnemonicParsing="false" onAction="#toSepia" prefHeight="30.0" prefWidth="250.0" text="Sepia" />
+                                             </children>
+                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#applyImageDialog" text="Apply" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="textTools" layoutX="-12.0" layoutY="-9.0" prefHeight="352.0" prefWidth="125.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#removeSequenceAction" prefHeight="30.0" prefWidth="250.0" text="Remove Text">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="60.0" text="Text:" />
+                                                <TextField fx:id="removeField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="147.0" />
+                                             </children>
+                                          </HBox>
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <Button mnemonicParsing="false" onAction="#replaceSequenceActionOld" prefHeight="30.0" prefWidth="250.0" text="Replace Text">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </VBox.margin></Button>
+                                          <HBox layoutX="10.0" layoutY="34.0" prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="60.0" text="Old:" />
+                                                <TextField fx:id="oldTField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="147.0">
+                                                   <HBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </HBox.margin></TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="136.0" prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="60.0" text="New:" />
+                                                <TextField fx:id="newTField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="147.0" />
+                                             </children>
+                                          </HBox>
+                                          <Separator layoutX="10.0" layoutY="306.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <Button layoutX="10.0" layoutY="114.0" mnemonicParsing="false" onAction="#chopString" prefHeight="30.0" prefWidth="250.0" text="Chop Text">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <HBox layoutX="10.0" layoutY="49.0" prefHeight="40.0" prefWidth="101.0">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="120.0" text="New length:" />
+                                                <TextField fx:id="newLenField" onKeyPressed="#toolKeyPressed" prefHeight="31.0" prefWidth="60.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin></TextField>
+                                             </children>
+                                          </HBox>
+                                          <Separator prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                          <Button layoutX="10.0" layoutY="114.0" mnemonicParsing="false" onAction="#toUpper" prefHeight="30.0" prefWidth="250.0" text="All Uppercase">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="150.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="258.0" mnemonicParsing="false" onAction="#toLower" prefHeight="30.0" prefWidth="250.0" text="All Lowercase">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="294.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="322.0" mnemonicParsing="false" onAction="#addQuotes" prefHeight="30.0" prefWidth="250.0" text="Add Quotes">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="358.0" prefWidth="200.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="webTools" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="Useful links" />
+                                          <Separator prefWidth="200.0" />
+                                          <Button mnemonicParsing="false" onAction="#openURL" prefHeight="30.0" prefWidth="250.0" text="Google URL Shortener">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="31.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="34.0" mnemonicParsing="false" onAction="#openURL" prefHeight="30.0" prefWidth="250.0" text="Google Translator">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="70.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="78.0" mnemonicParsing="false" onAction="#openURL" prefHeight="30.0" prefWidth="250.0" text="Whois Lookup">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="114.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="122.0" mnemonicParsing="false" onAction="#openURL" prefHeight="30.0" prefWidth="250.0" text="Down For Everyone">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Separator layoutX="10.0" layoutY="192.0" prefWidth="200.0" />
+                                          <Button layoutX="10.0" layoutY="195.0" mnemonicParsing="false" onAction="#openURL" prefHeight="30.0" prefWidth="250.0" text="Scam Adviser">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="fileTools" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label text="File name" />
+                                          <TextField fx:id="fileNameTF" onKeyPressed="#toolKeyPressed" />
+                                          <Button layoutX="10.0" layoutY="120.0" mnemonicParsing="false" onAction="#renameFile" prefHeight="30.0" prefWidth="250.0" text="Rename">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin></Button>
+                                          <Separator layoutX="10.0" layoutY="31.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin></Separator>
+                                          <Label layoutX="10.0" layoutY="10.0" text="Parent folder">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Label>
+                                          <TextField fx:id="filepathTF" layoutX="10.0" layoutY="34.0" onKeyPressed="#toolKeyPressed" />
+                                          <Button layoutX="10.0" layoutY="120.0" mnemonicParsing="false" onAction="#moveFileDialog" prefHeight="30.0" prefWidth="250.0" text="Select">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin></Button>
+                                          <Separator layoutX="10.0" layoutY="31.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin></Separator>
+                                          <Label layoutX="10.0" layoutY="10.0" text="Rename all using pattern">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Label>
+                                          <TextField fx:id="namePatternTF" layoutX="10.0" layoutY="34.0" onKeyPressed="#toolKeyPressed" />
+                                          <Button mnemonicParsing="false" onAction="#applyNamingPattern" prefHeight="30.0" prefWidth="250.0" text="Apply">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin></Button>
+                                          <Label layoutX="10.0" layoutY="260.0" text="Format: [base][range] eg: [frame][0-9] = frame1, frame2, etc." textFill="#808080" wrapText="true">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Separator layoutX="10.0" layoutY="113.0" prefWidth="200.0">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Separator>
+                                       </children></VBox>
+                                 </children></AnchorPane>
+                          </content>
+                           <effect>
+                              <DropShadow color="#00000080" height="5.45" radius="0.8625" width="0.0" />
+                           </effect>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <TabPane fx:id="homePane" prefHeight="364.0" prefWidth="425.0" tabClosingPolicy="UNAVAILABLE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab text="FAQ">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <WebView fx:id="faq_display" blendMode="DARKEN" prefHeight="410.0" prefWidth="413.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </AnchorPane>
+                     </content></Tab>
+                <Tab text="Development Notes">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <WebView fx:id="release_notes_display" blendMode="DARKEN" prefHeight="410.0" prefWidth="413.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <VBox fx:id="progressBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ProgressIndicator blendMode="SRC_ATOP" prefHeight="128.0" prefWidth="157.0" style="-fx-background-position: center;">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ProgressIndicator>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

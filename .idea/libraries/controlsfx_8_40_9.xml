@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="controlsfx-8.40.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/zenas/res/controlsfx-8.40.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

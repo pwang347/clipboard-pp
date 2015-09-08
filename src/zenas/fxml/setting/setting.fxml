@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zenas.fxml.setting.SettingFXController">
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="keyWarning" text="Key conflict!" textFill="#c43d3d" visible="false" />
+               </children>
+            </VBox>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
+            <Button mnemonicParsing="false" onAction="#defaultSettings" text="Default" />
+          <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+   <left>
+      <TreeView fx:id="treeView" prefHeight="451.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin></TreeView>
+   </left>
+   <center>
+      <StackPane fx:id="contentPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="dialogsContainer" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <CheckBox fx:id="hideDialogsCB" mnemonicParsing="false" prefWidth="276.0" text="Suppress warning dialogs" wrapText="true">
+                     <tooltip>
+                        <Tooltip text="No messages will be shown" />
+                     </tooltip>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="disableTrayNotifCB" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" prefWidth="276.0" text="Disable system tray notifications" wrapText="true">
+                     <tooltip>
+                        <Tooltip text="No messages will be shown" />
+                     </tooltip>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </CheckBox>
+               </children></VBox>
+            <VBox fx:id="toolboxContainer" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <CheckBox fx:id="animateToolCB" layoutX="15.0" layoutY="51.0" mnemonicParsing="false" prefWidth="276.0" text="Animate toolbox" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                     <tooltip>
+                        <Tooltip text="Display a transition effect when opening or closing the toolbox" />
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox fx:id="autoToolSetCB" mnemonicParsing="false" prefWidth="276.0" text="Automatically apply toolbox settings" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                     <tooltip>
+                        <Tooltip text="Applies current settings in the toolbox to newly copied data" />
+                     </tooltip></CheckBox>
+                  <CheckBox fx:id="clearInputCB" layoutX="15.0" layoutY="51.0" mnemonicParsing="false" prefWidth="276.0" text="Clear input fields after performing operation" wrapText="true">
+                     <tooltip>
+                        <Tooltip text="Makes the input fields blank at the end of a toolbox operation" />
+                     </tooltip>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <VBox fx:id="advancedContainer" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="49.0" prefWidth="264.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="154.0" text="Maximum queue size:" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="maxQueueTF" prefHeight="31.0" prefWidth="43.0" text="10">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="264.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="171.0" text="Listener refresh rate (ms):" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="20.0" right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="refreshRateTF" prefHeight="31.0" prefWidth="43.0" text="10">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+   <top>
+      <VBox prefHeight="30.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="titleLabel" text="Settings">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

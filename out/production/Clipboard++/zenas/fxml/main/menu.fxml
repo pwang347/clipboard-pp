@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<MenuBar BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zenas.fxml.main.MenuFXController">
+    <menus>
+        <Menu mnemonicParsing="false" text="File">
+            <items>
+            <Menu mnemonicParsing="false" text="New">
+               <items>
+                      <MenuItem mnemonicParsing="false" onAction="#newItem" text="Text Object" />
+               </items>
+            </Menu>
+                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Export Data" />
+                <MenuItem fx:id="menu_close" mnemonicParsing="false" onAction="#exit" text="Exit" />
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" onAction="#editToggle" text="Edit">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Edit" />
+                <MenuItem mnemonicParsing="false" onAction="#delPageDialog" text="Delete" />
+                <CheckMenuItem fx:id="disable_menu" mnemonicParsing="false" onAction="#toggleDisable" text="Disable" />
+                <Menu mnemonicParsing="false" text="Preferences">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#keyBindingsPage" text="Key Bindings" />
+                        <MenuItem mnemonicParsing="false" onAction="#settingsPage" text="Settings" />
+                    </items>
+                </Menu>
+            </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <items>
+                <CheckMenuItem fx:id="show_faq_menu" mnemonicParsing="false" onAction="#showHome" text="View FAQ" />
+                <MenuItem mnemonicParsing="false" onAction="#aboutPage" text="About" />
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>
